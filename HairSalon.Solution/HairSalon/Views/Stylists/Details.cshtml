@@ -1,0 +1,42 @@
+@{
+  Layout = "_Layout";
+}
+@using HairSalon.Models
+
+<h1>Details for: @Model.Name</h1>
+
+
+
+<ul>
+  <li>Specialty: @Model.Specialty</li>
+  <li>Price: 
+    @{int i = 0;
+      @for(; i < @Model.Price; i++)
+      {
+        <span class="money-green">$</span>
+      }
+      for(; i < 5; i++)
+      {
+        <span class="money-grey">$</span>
+      }
+    } 
+  </li>
+  <li>Experience Level: @Model.Experience</li>
+  <li>Speed: @Model.CuttingSpeed</li>
+  <ol>
+  @foreach (Client cust in @Model.Clients) 
+  {
+    <li>@Html.ActionLink(@cust.Name, "Details", "Clients", new { id = cust.ClientId })</li>
+  }
+  </ol>
+</ul>
+
+
+@* public string Name { get; set; }
+    public string Specialty { get; set; }
+    public int Price { get; set; }
+    public int Experience { get; set; }
+    public int CuttingSpeed { get; set; }
+    public int StylistId { get; set; }
+
+    public virtual ICollection<Client> Clients { get; set; } *@
