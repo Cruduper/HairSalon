@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Client
+
+<h2>Details for @Model.Name</h2>
+<ul>
+  @* example using (m)odel directive to display data *@
+  <li> <span>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</span> </li>
+  @* example using (M)odel passed into the View to display data *@
+  <li> <span>Hair Color: </span>@Model.HairColor </li>
+  <li> <span>Hair Thickness: </span> 
+    @{ string[] thicknesses = new string[] {"Very thin", "Thin", "Average", "Thick", "Very thick"};
+      <span>@thicknesses[@Model.HairThickness - 1]</span>
+    }
+  </li>
+  <li> <span>Hair Length: </span>@Model.HairLength inches</li>
+  <li> <span>Curly Hair? </span>
+    @if (Model.Curly == true)
+    {
+      @(" Yes")
+    }
+    else 
+    {
+      @(" No")
+    }
+  </li>
+  <li> <span>Stylist: </span>@Html.ActionLink($"{@ViewBag.Stylist.Name}", "Details", "Stylists", new { id = @ViewBag.Stylist.StylistId }) </li>
