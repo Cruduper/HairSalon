@@ -21,5 +21,11 @@ namespace HairSalon.Controllers
       List<Stylist> model = _db.Stylists.ToList();
       return View(model);
     }
+
+    public ActionResult Details(int id)
+    {
+      Stylist model = _db.Stylists.FirstOrDefault(sty => sty.StylistId == id);
+      return View(model);
+    }
   }
 }
