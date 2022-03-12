@@ -1,3 +1,52 @@
 @{
   Layout = "_Layout";
 }
+
+@* @using HairSalon.Models; *@
+@model HairSalon.Models.Stylist
+
+<h1>Add a new Stylist</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor( model => Model.Name)
+  @Html.TextBoxFor(model => Model.Name)
+
+  @Html.LabelFor(model => Model.Specialty) 
+  <select id="Specialty" name="Specialty">
+    <option >Curly Hair</option>
+    <option >Long Hair</option>
+    <option >Huge Hair</option>
+    <option >Cosmic Hair</option>
+    <option >Invisible Hair</option>
+  </select>
+
+  @Html.LabelFor(model => Model.Price) 
+  <select id="Price" name="Price">
+    <option value="1">Very affordable</option>
+    <option value="2">Inexpensive</option>
+    <option value="3">Average</option>
+    <option value="4">High quality</option>
+    <option value="5">Top Dollar</option>
+  </select>
+
+  @Html.LabelFor(model => Model.Experience) 
+  <select id="Experience" name="Experience">
+    <option value="1">New</option>
+    <option value="2">Some Experience</option>
+    <option value="3">Average</option>
+    <option value="4">Very Experienced</option>
+    <option value="5">Expert</option>
+  </select>
+
+  @Html.LabelFor(model => Model.CuttingSpeed) 
+  <select id="CuttingSpeed" name="CuttingSpeed">
+    <option value="1">Slow</option>
+    <option value="2">slightly slow</option>
+    <option value="3">Average</option>
+    <option value="4">Fast</option>
+    <option value="5">Like lightning</option>
+  </select>
+
+  <input type="submit" value="Add new stylist" />
+}
