@@ -2,7 +2,6 @@
   Layout = "_Layout";
 }
 
-@* @using HairSalon.Models; *@
 @model HairSalon.Models.Stylist
 
 <h1>Add a new Stylist</h1>
@@ -32,11 +31,11 @@
 
   @Html.LabelFor(model => Model.Experience) 
   <select id="Experience" name="Experience">
-    <option value="1">New</option>
-    <option value="2">Some Experience</option>
-    <option value="3">Average</option>
-    <option value="4">Very Experienced</option>
-    <option value="5">Expert</option>
+    <option>New</option>
+    <option>Some Experience</option>
+    <option>Average</option>
+    <option>Very Experienced</option>
+    <option>Expert</option>
   </select>
 
   @Html.LabelFor(model => Model.CuttingSpeed) 
@@ -50,3 +49,7 @@
 
   <input type="submit" value="Add new stylist" />
 }
+<div class="nav-bar">
+  <div class="nav-link">@Html.ActionLink("Back to stylists", "Index")</div>
+  <div class="nav-link">@Html.ActionLink("Home", "Index", "Home")</div>
+</div>
