@@ -1,3 +1,54 @@
 @{
   Layout = "_Layout";
 }
+
+@model HairSalon.Models.Client
+
+<h1>Add a client</h1>
+<div class="form-group">
+@using (Html.BeginForm())
+{
+  <div class="form-group">
+    @Html.LabelFor(model => Model.Name)
+    @Html.TextBoxFor(model => Model.Name, new { @class= "form-control", required = "required" })
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.HairColor) 
+    <select id="HairColor" name="HairColor" class="form-control">
+      <option>Black</option>
+      <option>Brown</option>
+      <option>Grey</option>
+      <option>Blonde</option>
+      <option>Red</option>
+    </select>
+  </div>
+  <div class="form-group">
+  @Html.LabelFor(model => Model.HairThickness) 
+  <select id="HairThickness" name="HairThickness" class="form-control">
+    <option>Thin</option>
+    <option>Medium</option>
+    <option>Thick</option>
+  </select>
+  </div>
+  <div class="form-group">
+  @Html.LabelFor(model => Model.HairLength) 
+  <select id="HairLength" name="HairLength" class="form-control">
+    <option>Short</option>
+    <option>Medium</option>
+    <option>Long</option>
+  </select>
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.Stylist)
+    @Html.DropDownList("StylistId")
+  </div>
+  
+  <input type="submit" value="Add new client" />
+}
+</div>
+
+<div class="nav-bar">
+  <div class="nav-link">@Html.ActionLink("Show all clients", "Index")</div>
+  <div class="nav-link">@Html.ActionLink("Show all Stylists", "Index", "Stylists")</div>
+  <div class="nav-link">@Html.ActionLink("Home", "Index", "Home")</div>
+</div>
