@@ -7,15 +7,11 @@
 <h2>Details for @Model.Name</h2>
 <ul>
   @* example using (m)odel directive to display data *@
-  <li> <span>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</span> </li>
+  <li> <span>@Html.DisplayNameFor(model => @Model.Name): @Html.DisplayFor(model => @Model.Name)</span> </li>
   @* example using (M)odel passed into the View to display data *@
   <li> <span>Hair Color: </span>@Model.HairColor </li>
-  <li> <span>Hair Thickness: </span> 
-    @{ string[] thicknesses = new string[] {"Very thin", "Thin", "Average", "Thick", "Very thick"};
-      <span>@thicknesses[@Model.HairThickness - 1]</span>
-    }
-  </li>
-  <li> <span>Hair Length: </span>@Model.HairLength inches</li>
+  <li> <span>Hair Thickness: </span>@Model.HairThickness </li>
+  <li> <span>Hair Length: </span>@Model.HairLength </li>
   <li> <span>Curly Hair? </span>
     @if (Model.Curly == true)
     {
@@ -26,4 +22,15 @@
       @(" No")
     }
   </li>
-  <li> <span>Stylist: </span>@Html.ActionLink($"{@ViewBag.Stylist.Name}", "Details", "Stylists", new { id = @ViewBag.Stylist.StylistId }) </li>
+    @if (ViewBag.Stylist  == null)
+    {
+      <p>Stylist name = @ViewBag.Stylist.Name</p>
+    }
+  <li> <span>Stylist: </span>@Html.ActionLink($"{@ViewBag.Stylist.Name}", "Details", "Stylists", new { id = ViewBag.Stylist.StylistId }) </li>
+</ul>
+
+<div class="nav-bar">
+  <div class="nav-link">@Html.ActionLink("Add new client", "Create")</div>
+  <div class="nav-link">@Html.ActionLink("Back to Stylists", "Index", "Stylists")</div>
+  <div class="nav-link">@Html.ActionLink("Home", "Index", "Home")</div>
+</div>
