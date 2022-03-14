@@ -4,8 +4,8 @@ namespace HairSalon.Models
   {
     public string Name { get; set; }
     public string HairColor { get; set;}
-    public int HairThickness { get; set; }
-    public int HairLength { get; set; }
+    public string HairThickness { get; set; }
+    public string HairLength { get; set; }
     public bool Curly { get; set; }
     public int ClientId { get; set; }
     public int StylistId { get; set; }
