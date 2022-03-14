@@ -36,7 +36,6 @@ This was built as the third C# project in my coding bootcamp. To be continued...
 ## Known Bugs and issues
 
 * _No known bugs_
-* Issue: code would have been marginally easier to read and more extensible had I given my Vendor and Order classes "id" properties in order to easily identify each specific vendor and order. As this is an early C# learning project and not production code, I chose to purposely make the assignment more challenging and truly test my newfound knowledge of Razor and logical program flow by omitting these extremely useful properties.
 
 ## License
 
