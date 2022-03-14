@@ -27,5 +27,18 @@ namespace HairSalon.Controllers
       Stylist model = _db.Stylists.FirstOrDefault(sty => sty.StylistId == id);
       return View(model);
     }
+
+    public ActionResult Create()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Stylist employee)
+    {
+      _db.Stylists.Add(employee);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
