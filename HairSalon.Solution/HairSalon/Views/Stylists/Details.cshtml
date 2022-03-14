@@ -5,8 +5,6 @@
 
 <h1>Details for: @Model.Name</h1>
 
-
-
 <ul>
   <li>Specialty: @Model.Specialty</li>
   <li>Price: 
@@ -22,7 +20,20 @@
     } 
   </li>
   <li>Experience Level: @Model.Experience</li>
-  <li>Speed: @Model.CuttingSpeed</li>
+  <li>Speed: [slow]
+    @{int j = 1;
+      @for(; j < @Model.CuttingSpeed; j++)
+      {
+        <span class="money-grey">✂︎</span>
+      }
+      <span class="money-green">✂︎</span>
+      for(; j < 5; j++)
+      {
+        <span class="money-grey">✂︎</span>
+      }
+    } 
+    [FAST]
+  </li>
   <ol>
   @foreach (Client cust in @Model.Clients) 
   {
@@ -31,12 +42,8 @@
   </ol>
 </ul>
 
-
-@* public string Name { get; set; }
-    public string Specialty { get; set; }
-    public int Price { get; set; }
-    public int Experience { get; set; }
-    public int CuttingSpeed { get; set; }
-    public int StylistId { get; set; }
-
-    public virtual ICollection<Client> Clients { get; set; } *@
+<div class="nav-bar">
+  <div class="nav-link">@Html.ActionLink("Add a new client", "Create", "Clients")</div>
+  <div class="nav-link">@Html.ActionLink("Back to stylists", "Index")</div>
+  <div class="nav-link">@Html.ActionLink("Home", "Index", "Home")</div>
+</div>
