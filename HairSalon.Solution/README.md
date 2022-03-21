@@ -71,6 +71,7 @@ $ touch appsettings.json
 * _navigate to program folder of the repo, the one that holds the your Program.cs file (named HairSalon in this repo) using the terminal_
 * _type in ```$ dotnet build``` command_
 * _type in ```$ dotnet run``` command_
+* _type in http://localhost:5000 into browser's address bar to use the app_
 * _get awesome_
 
 ## Known Bugs and issues
